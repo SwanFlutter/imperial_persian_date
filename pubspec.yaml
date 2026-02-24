@@ -1,6 +1,6 @@
 name: imperial_persian_date
-description: "A Flutter package for Imperial Persian (Shahanshahi) calendar. Converts between Gregorian, Solar Hijri (Shamsi), and Imperial Persian dates. Current Imperial year = Shamsi year + 1180."
-version: 0.0.1
+description: "Imperial Persian (Shahanshahi) calendar converter for Gregorian, Shamsi, and Imperial dates."
+version: 0.0.2
 homepage: "https://github.com/SwanFlutter/imperial_persian_date"
 
 environment:

@@ -1,3 +1,12 @@
+
+## 0.0.2
+
+
+* Fix pub point
+
+
+---
+
 ## 0.0.1
 
 * Initial release of Imperial Persian Date package
