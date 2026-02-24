@@ -93,7 +93,7 @@ print(date.format('YYYY-MM-DD')); // 2584-12-05
 print(date.format('WWWW DD MMMM YYYY')); // سه‌شنبه 05 اسفند 2584
 
 // English format
-print(date.format('WWWE DD MMME YYYY')); // Seshanbe 05 Esfand 2584
+print(date.format('WWWE DD MMME YYYY')); // Tuesday 05 Esfand 2584
 
 // With time
 print(date.format('YYYY/MM/DD HH:mm:ss')); // 2584/12/05 14:30:00
@@ -117,7 +117,7 @@ print(date.format('WWWW، D MMMM YYYY')); // سه‌شنبه، 5 اسفند 2584
 | `DD` | 2-digit day | 06 |
 | `D` | Day without leading zero | 6 |
 | `WWWW` | Full weekday (Farsi) | جمعه |
-| `WWWE` | Full weekday (English) | Jomeh |
+| `WWWE` | Full weekday (English) | Friday |
 | `WWW` | Abbreviated weekday (Farsi) | جمع |
 | `HH` | 2-digit hour (24h) | 14 |
 | `H` | Hour without leading zero | 14 |
@@ -189,7 +189,7 @@ print(date.day); // 5
 // Weekday (0 = Saturday, 6 = Friday)
 print(date.weekDay); // 2 (Tuesday)
 print(date.weekDayName); // سه‌شنبه
-print(date.weekDayNameEn); // Seshanbe
+print(date.weekDayNameEn); // Tuesday
 
 // Month names
 print(date.monthName); // اسفند
@@ -250,13 +250,13 @@ print(fromJdn); // 2584/12/5
 ### Weekday Names
 
 #### Persian (Farsi)
-- شنبه (Shanbe) - Saturday
-- یکشنبه (Yekshanbe) - Sunday
-- دوشنبه (Doshanbe) - Monday
-- سه‌شنبه (Seshanbe) - Tuesday
-- چهارشنبه (Chaharshanbe) - Wednesday
-- پنج‌شنبه (Panjshanbe) - Thursday
-- جمعه (Jomeh) - Friday
+- شنبه (Saturday)
+- یکشنبه (Sunday)
+- دوشنبه (Monday)
+- سه‌شنبه (Tuesday)
+- چهارشنبه (Wednesday)
+- پنج‌شنبه (Thursday)
+- جمعه (Friday)
 
 ## Calendar Conversion Examples
 
@@ -275,6 +275,7 @@ print(gregorian); // 1941-03-21 (approximately)
 final today = ImperialPersianDate.fromGregorian(DateTime(2026, 2, 24));
 print(today); // 2584/12/5
 print(today.format('WWWW DD MMMM YYYY')); // سه‌شنبه 05 اسفند 2584
+print(today.format('WWWE DD MMME YYYY')); // Tuesday 05 Esfand 2584
 
 // Round-trip conversion
 final shamsi = today.toShamsi();

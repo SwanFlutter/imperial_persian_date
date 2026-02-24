@@ -11,10 +11,32 @@ class ImperialPersianConverter {
 
   // Private month-day tables used in Shamsi conversion algorithms.
   static const List<int> _gDaysInMonth = [
-    31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
+    31,
+    28,
+    31,
+    30,
+    31,
+    30,
+    31,
+    31,
+    30,
+    31,
+    30,
+    31
   ];
   static const List<int> _jDaysInMonth = [
-    31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29
+    31,
+    31,
+    31,
+    31,
+    31,
+    31,
+    30,
+    30,
+    30,
+    30,
+    30,
+    29
   ];
 
   // ---------------------------------------------------------------------------
@@ -34,15 +56,12 @@ class ImperialPersianConverter {
     gm2 = gm - 1;
     gd2 = gd - 1;
 
-    gDayNo = 365 * gy2 +
-        (gy2 + 3) ~/ 4 -
-        (gy2 + 99) ~/ 100 +
-        (gy2 + 399) ~/ 400;
+    gDayNo =
+        365 * gy2 + (gy2 + 3) ~/ 4 - (gy2 + 99) ~/ 100 + (gy2 + 399) ~/ 400;
     for (i = 0; i < gm2; ++i) {
       gDayNo += _gDaysInMonth[i];
     }
-    if (gm2 > 1 &&
-        ((gy % 4 == 0 && gy % 100 != 0) || (gy % 400 == 0))) {
+    if (gm2 > 1 && ((gy % 4 == 0 && gy % 100 != 0) || (gy % 400 == 0))) {
       ++gDayNo;
     }
     gDayNo += gd2;
@@ -116,9 +135,7 @@ class ImperialPersianConverter {
       gDayNo = gDayNo % 365;
     }
 
-    for (i = 0;
-        gDayNo >= _gDaysInMonth[i] + (i == 1 && leap ? 1 : 0);
-        i++) {
+    for (i = 0; gDayNo >= _gDaysInMonth[i] + (i == 1 && leap ? 1 : 0); i++) {
       gDayNo -= _gDaysInMonth[i] + (i == 1 && leap ? 1 : 0);
     }
     gm = i + 1;
@@ -169,7 +186,8 @@ class ImperialPersianConverter {
   static bool isShamsiLeapYear(int year) {
     // Algorithmic leap-year test for the Shamsi calendar.
     final List<int> leapRemainders = [1, 5, 9, 13, 17, 22, 26, 30];
-    return leapRemainders.contains(((year - 474) % 2820 + 474 + 38) * 682 % 2816);
+    return leapRemainders
+        .contains(((year - 474) % 2820 + 474 + 38) * 682 % 2816);
   }
 
   /// Returns [true] if the given Imperial Persian [year] is a leap year.

@@ -18,7 +18,7 @@ class ImperialPersianFormatter {
   /// - DD: 2-digit day (e.g., 06)
   /// - D: Day without leading zero (e.g., 6)
   /// - WWWW: Full weekday name in Farsi (e.g., جمعه)
-  /// - WWWE: Full weekday name in English (e.g., Jomeh)
+  /// - WWWE: Full weekday name in English (e.g., Friday)
   /// - WWW: Abbreviated weekday name in Farsi (first 3 chars)
   /// - HH: 2-digit hour (e.g., 09)
   /// - H: Hour without leading zero (e.g., 9)

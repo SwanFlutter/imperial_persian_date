@@ -48,15 +48,15 @@ const List<String> persianWeekDayNames = [
   'جمعه', // Jomeh (Friday)
 ];
 
-/// Persian weekday names in English.
+/// Weekday names in English.
 const List<String> persianWeekDayNamesEn = [
-  'Shanbe',
-  'Yekshanbe',
-  'Doshanbe',
-  'Seshanbe',
-  'Chaharshanbe',
-  'Panjshanbe',
-  'Jomeh',
+  'Saturday',
+  'Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
 ];
 
 /// Number of days in each month (non-leap year).
