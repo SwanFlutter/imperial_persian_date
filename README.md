@@ -28,7 +28,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  imperial_persian_date: ^0.0.2
+  imperial_persian_date: ^0.0.3
 ```
 
 Then run:

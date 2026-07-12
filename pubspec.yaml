@@ -1,6 +1,6 @@
 name: imperial_persian_date
 description: "Imperial Persian (Shahanshahi) calendar converter for Gregorian, Shamsi, and Imperial dates."
-version: 0.0.2
+version: 0.0.3
 homepage: "https://github.com/SwanFlutter/imperial_persian_date"
 
 environment:

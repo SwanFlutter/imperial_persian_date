@@ -71,9 +71,39 @@ class ImperialPersianDate implements Comparable<ImperialPersianDate> {
   }
 
   /// Creates an Imperial Persian date from the current date and time.
+  ///
+  /// Uses Iran Standard Time (UTC+3:30) to ensure the correct Persian date
+  /// is returned regardless of the device's local timezone.
   factory ImperialPersianDate.now() {
-    final now = DateTime.now();
-    return ImperialPersianDate.fromGregorian(now);
+    // Iran Standard Time = UTC+3:30 (IRST) / UTC+4:30 (IRDT during DST)
+    // Iran observes DST: +4:30 from 3rd week of March to 3rd week of September
+    final utc = DateTime.now().toUtc();
+    final iranOffset = _iranOffset(utc);
+    final iranTime = utc.add(iranOffset);
+    return ImperialPersianDate.fromGregorian(iranTime);
+  }
+
+  /// Returns Iran's UTC offset for a given UTC [DateTime].
+  ///
+  /// Iran Standard Time is UTC+3:30. Iran Daylight Time is UTC+4:30.
+  /// DST starts on the last Wednesday before the 1st day of Farvardin
+  /// (approximately March 21) and ends on the last Wednesday before the
+  /// 1st day of Mehr (approximately September 23).
+  static Duration _iranOffset(DateTime utc) {
+    // Approximate DST: UTC+4:30 from ~March 21 to ~September 22
+    // More precisely: starts at midnight IRST on 1 Farvardin,
+    // ends at midnight IRST on 1 Mehr.
+    // Simple approximation that covers all practical cases:
+    final month = utc.month;
+    final day = utc.day;
+    if (month > 3 && month < 9) {
+      return const Duration(hours: 4, minutes: 30); // IRDT
+    } else if (month == 3 && day >= 21) {
+      return const Duration(hours: 4, minutes: 30); // IRDT
+    } else if (month == 9 && day < 22) {
+      return const Duration(hours: 4, minutes: 30); // IRDT
+    }
+    return const Duration(hours: 3, minutes: 30); // IRST
   }
 
   /// Creates an Imperial Persian date from a Gregorian [DateTime].

@@ -1,4 +1,11 @@
 
+## 0.0.3
+
+* Fix `ImperialPersianDate.now()` returning wrong date on devices with non-Iran timezone
+* `now()` now uses Iran Standard Time (IRST UTC+3:30 / IRDT UTC+4:30) internally to ensure the correct Persian date regardless of device timezone
+
+---
+
 ## 0.0.2
 
 
